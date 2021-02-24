@@ -1,18 +1,24 @@
+/* eslint-disable func-names */
 /* eslint-disable import/prefer-default-export */
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
-import { TextStyleVariants } from '../../foundation/Text';
+import { TextStyleVariantsMap } from '../../foundation/Text';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 import { propToStyle } from '../../../theme/utils/propToStyle';
 
 const ButtonGhost = css`
-  color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
-  background-color: transparent;
+  color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
+  background: transparent; 
 `;
 
 const ButtonDefault = css`
-  color: ${({ theme, variant }) => get(theme, `colors.${variant}.contrastText`)};
-  background-color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
+  color: white;
+  background-color: ${function (props) {
+    return get(props.theme, `colors.${props.variant}.color`);
+  }};
+  color: ${function (props) {
+    return get(props.theme, `colors.${props.variant}.contrastText`);
+  }};
 `;
 
 export const Button = styled.button`
@@ -21,27 +27,30 @@ export const Button = styled.button`
   padding: 12px 26px;
   font-weight: bold;
   opacity: 1;
+  border-radius: 8px;
+  ${TextStyleVariantsMap.smallestException}
+  ${function (props) {
+    if (props.ghost) {
+      return ButtonGhost;
+    }
+    return ButtonDefault;
+  }}
   transition: opacity ${({ theme }) => theme.transition};
-  border-radius: ${({ theme }) => theme.borderRadius};
-
-  ${TextStyleVariants.smallestException}
-
-  ${breakpointsMedia({
-    xs: css`
-      ${TextStyleVariants.smallestException}
-    `,
-    md: css`
-      padding: 12px 43px;
-      ${TextStyleVariants.paragraph1}
-    `,
-  })}
-
-  ${propToStyle('margin')}
-  ${propToStyle('display')}
-
-  ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}
+  border-radius: ${(props) => props.theme.borderRadius};
   &:hover,
   &:focus {
     opacity: .5;
   }
+  ${breakpointsMedia({
+    xs: css`
+      /* All devices */
+      ${TextStyleVariantsMap.smallestException}
+    `,
+    md: css`
+     /* From md breakpoint */
+     ${TextStyleVariantsMap.paragraph1}
+    `,
+  })}
+  ${propToStyle('margin')}
+  ${propToStyle('display')}
 `;

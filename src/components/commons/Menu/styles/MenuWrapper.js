@@ -1,9 +1,10 @@
+/* eslint-disable import/prefer-default-export */
 // eslint-disable-next-line no-unused-vars
 import styled, { css } from 'styled-components';
 import { breakpointsMedia } from '../../../../theme/utils/breakpointsMedia';
-import { TextStyleVariants } from '../../../foundation/Text';
+import { TextStyleVariantsMap } from '../../../foundation/Text';
 
-const MenuWrapper = styled.nav`
+export const MenuWrapper = styled.nav`
   font-family: 'Rubik', sans-serif;
   display: flex;
   align-items: center;
@@ -62,6 +63,7 @@ MenuWrapper.CentralSide = styled.div`
   border-top: 1px solid #88989E;
   border-bottom: 1px solid #88989E;
   padding: 12px;
+  
   ${breakpointsMedia({
     md: css`
       max-width: 332px;
@@ -82,10 +84,10 @@ MenuWrapper.CentralSide = styled.div`
     transition: 200ms ease-in-out;
     ${breakpointsMedia({
     xs: css`
-        ${TextStyleVariants.smallestException}
+        ${TextStyleVariantsMap.smallestException}
     `,
     md: css`
-      ${TextStyleVariants.paragraph1}
+      ${TextStyleVariantsMap.paragraph1}
     `,
   })}
     &:hover,
@@ -110,5 +112,3 @@ MenuWrapper.RightSide = styled.div`
     `,
   })}
 `;
-
-export default MenuWrapper;

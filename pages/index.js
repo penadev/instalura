@@ -3,9 +3,10 @@ import Menu from '../src/components/commons/Menu';
 import Footer from '../src/components/commons/Footer';
 import Text from '../src/components/foundation/Text';
 import { Button } from '../src/components/commons/Button';
-import { Grid } from '../src/components/layout/Grid';
-import { Box } from '../src/components/layout/Box';
+import { Grid } from '../src/components/foundation/layout/Grid';
+import { Box } from '../src/components/foundation/layout/Box';
 import Modal from '../src/components/commons/Modal';
+import FormCadastro from '../src/components/patterns/FormCadastro';
 
 export default function Home() {
   const [isModalOpen, setModalState] = React.useState(false);
@@ -29,15 +30,7 @@ export default function Home() {
         }}
       >
         {(propsDoModal) => (
-          <Box
-            backgroundColor="white"
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...propsDoModal}
-          >
-            <div>
-              Nosso conteúdo pro modal
-            </div>
-          </Box>
+          <FormCadastro propsDoModal={propsDoModal} />
         )}
       </Modal>
 

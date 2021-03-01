@@ -37,6 +37,18 @@ const LockScroll = createGlobalStyle`
   }
 `;
 
+const CloseModal = styled.div`
+  display: flex;
+  /* width: 100%; */
+  right: 0;
+  position: absolute;
+  margin-left: auto;
+  justify-content: flex-end;
+  margin-top: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+`;
+
 function Modal({ isOpen, onClose, children }) {
   return (
     <ModalWrapper
@@ -69,6 +81,9 @@ function Modal({ isOpen, onClose, children }) {
           flex: 1,
         }}
       >
+        <CloseModal>
+          x
+        </CloseModal>
         {children({
           'data-modal-safe-area': 'true',
         })}

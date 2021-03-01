@@ -21,7 +21,7 @@ export function propToStyle(propName) {
         },
         sm: {
           [propName]: propValue.sm,
-        }, 
+        },
         md: {
           [propName]: propValue.md,
         },

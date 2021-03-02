@@ -7,7 +7,8 @@
     "start": "next start",
     "eslint:init": "eslint --init",
     "lint": "eslint ./ --fix --ignore-path .gitignore .",
-    "custom-script": "node ./script-test.js"
+    "custom-script": "node ./script-test.js",
+    "commit": "cz"
   },
   "dependencies": {
     "framer-motion": "^3.7.0",
@@ -26,6 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "babel-plugin-styled-components": "^1.8.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.19.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
@@ -39,5 +41,10 @@
       "pre-push": "npm run lint"
     }
   },
-  "license": "MIT"
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

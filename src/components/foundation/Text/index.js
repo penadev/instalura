@@ -54,8 +54,8 @@ export default function Text({
     return (
       <TextBase
         as={Link}
-        variant={variant}
         href={href}
+        variant={variant}
       // eslint-disable-next-line react/jsx-props-no-spreading
         {...props}
       >
@@ -78,9 +78,9 @@ export default function Text({
 
 Text.propTypes = {
   tag: PropTypes.string,
+  href: PropTypes.string,
   variant: PropTypes.string,
   children: PropTypes.node,
-  href: PropTypes.string,
 };
 
 Text.defaultProps = {

@@ -8,7 +8,8 @@
     "eslint:init": "eslint --init",
     "lint": "eslint ./ --fix --ignore-path .gitignore .",
     "custom-script": "node ./script-test.js",
-    "commit": "cz"
+    "commit": "cz",
+    "test:integration:open": "cypress open"
   },
   "dependencies": {
     "framer-motion": "^3.7.0",
@@ -29,9 +30,11 @@
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "babel-plugin-styled-components": "^1.8.0",
+    "cypress": "^6.8.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.19.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",

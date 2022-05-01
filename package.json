@@ -18,7 +18,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "react-is": "^16.8.0",
+    "react-is": "^18.1.0",
     "react-lottie": "^1.2.3",
     "shelljs": "^0.8.4",
     "styled-components": "^5.0.0",
